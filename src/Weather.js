@@ -9,29 +9,29 @@ export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity);
 
   function handleResponse(response) {
-    console.log();
     console.log(response.data);
     setWeatherData({
       ready: true,
-      coordinates: response.data.coord,
-      temperature: response.data.main.temp,
+      coordinates: response.data.coordinates,
+      temperature: response.data.temperature.current,
       wind: response.data.wind.speed,
-      city: response.data.name,
-      date: new Date(response.data.dt * 1000),
-      description: response.data.weather[0].description,
-      icon: response.data.weather[0].icon,
-      humidity: response.data.main.humidity,
-      feelsLike: response.data.main.feels_like,
+      city: response.data.city,
+      date: new Date(response.data.time * 1000),
+      description: response.data.condition.description,
+      icon: response.data.condition.icon,
+      humidity: response.data.temperature.humidity,
+      feelsLike: response.data.temperature.feels_like,
+      icon_url: `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`,
     });
   }
   function search() {
-    const apiKey = "b7a3558dd4231bb7517fc8c9d13c79d4";
+    const apiKey = "7878d011dt257f603164ea9dcabco754";
 
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
-  }
+  } 
 
-  function handleSubmit(event) {
+   function handleSubmit(event) {
     event.preventDefault();
     search();
   }
