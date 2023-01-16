@@ -1,0 +1,6 @@
+.WeatherForecast img {
+  height: 40px;
+  margin-right: 10px;
+  margin-top: -10px;
+  display: inline-block;
+}

@@ -40,3 +40,9 @@
   top: -32px;
   margin-left: 5px;
 }
+.Weather img {
+  height: 70px;
+  margin-right: 10px;
+  margin-top: -10px;
+  display: inline-block;
+}
