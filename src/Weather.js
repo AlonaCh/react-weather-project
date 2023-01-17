@@ -29,9 +29,9 @@ export default function Weather(props) {
 
     let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
-  } 
+  }
 
-   function handleSubmit(event) {
+  function handleSubmit(event) {
     event.preventDefault();
     search();
   }
@@ -57,7 +57,8 @@ export default function Weather(props) {
               <input
                 type="submit"
                 value="Search"
-                className="btn btn-primary w-100"
+                className
+                class="btn btn-outline-info w-100 appButton"
               />
             </div>
           </div>
